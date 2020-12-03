@@ -1,0 +1,4 @@
+#!/bin/sh
+curl "https://github.com/HinTak?tab=repositories" | grep 'name codeRepository'
+curl "https://github.com/HinTak?tab=repositories" | grep 'Next<' | cut -d \" -f 14 | perl -pi -e 's(amp;)();' | urldecode.pl | xargs -d '\n' curl | grep 'name codeRepository'
+curl "https://github.com/HinTak?tab=repositories" | grep 'Next<' | cut -d \" -f 14 | perl -pi -e 's(amp;)();' | urldecode.pl | xargs -d '\n' curl | grep 'Next<' | cut -d \" -f 16 | perl -pi -e 's(amp;)();' | urldecode.pl | xargs -d '\n' curl  | grep 'name codeRepository' 
